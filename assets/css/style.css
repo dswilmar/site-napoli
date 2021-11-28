@@ -1,0 +1,30 @@
+header {
+	background: url('../img/header.jpg');
+	background-size: cover;
+	padding: 30px;
+}
+
+.logo {
+	width: 40%;
+}
+
+footer {
+	text-align: center;
+	background-color: #3B3B3B;
+	padding: 30px;
+}
+
+footer p {
+	padding-top: 20px;
+	color: #fafafa;
+}
+
+footer p a {
+	color: #fafafa;
+	font-weight: bold;
+}
+
+.logo-footer {
+	filter: grayscale(100%);
+	width: 150px;
+}
