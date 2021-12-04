@@ -8,6 +8,15 @@ header {
 	width: 40%;
 }
 
+.card {
+	min-height: 200px;
+	text-align: center;
+}
+
+.card i {
+	font-size: 3em;
+}
+
 footer {
 	text-align: center;
 	background-color: #3B3B3B;
