@@ -1,11 +1,21 @@
 header {
 	background: url('../img/header.jpg');
 	background-size: cover;
-	padding: 30px;
+	padding: 30px;	
+}
+
+header h2, header h2 small {
+	display: block;
+	padding: 10px;
+	color: #fff;
 }
 
 .logo {
 	width: 40%;
+}
+
+.logo-small {
+	width: 10%;
 }
 
 .card {
