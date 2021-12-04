@@ -1,0 +1,70 @@
+<div class="row corpo">
+	<div class="col-md-12">
+		<h2><i class="fa fa-users"></i> <?php echo $titulo ?></h2>
+		<hr>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item">
+				<a href="<?php echo PAG_TIMES ?>">
+					<i class="fa fa-arrow-left"></i>
+					Voltar
+				</a>
+			</li>
+			<li class="breadcrumb-item">
+				<a href="<?php echo PAG_ALUNOS_TIME . $codigo ?>">
+					<i class="fa fa-users"></i>
+					Alunos do time
+				</a>
+			</li>
+		</ol>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<form method="POST">
+			<input type="hidden" name="codigo" value="<?php echo $codigo ?>">
+			<div class="form-group col-md-12">
+				<label>Escola:</label>
+				<select name="cod_escola" class="form-control" id="txtEscola" required>
+					<option></option>
+					<?php foreach ($escolas as $e): ?>
+						<?php if ($e['cod_escola'] == $cod_escola): ?>
+							<option value="<?php echo $e['cod_escola'] ?>" selected><?php echo $e['nome'] ?></option>
+						<?php else: ?>
+							<option value="<?php echo $e['cod_escola'] ?>"><?php echo $e['nome'] ?></option>
+						<?php endif ?>
+					<?php endforeach ?>
+				</select>
+			</div>
+			<div class="form-group col-md-12">
+				<label>Categoria:</label>
+				<select name="cod_categoria" class="form-control" id="txtCategoria" required>
+					<option></option>
+					<?php foreach ($categorias as $c): ?>
+						<?php if ($c['cod_categoria'] == $cod_categoria): ?>
+							<option value="<?php echo $c['cod_categoria'] ?>" selected><?php echo $c['nome'] ?></option>
+						<?php else: ?>
+							<option value="<?php echo $c['cod_categoria'] ?>"><?php echo $c['nome'] ?></option>
+						<?php endif ?>
+					<?php endforeach ?>
+				</select>
+			</div>
+			<div class="form-group col-md-12">
+				<label>Nome do time:</label>
+				<input type="text" name="nome" id="txtTime" value="<?php echo $nome ?>" class="form-control" required>
+			</div>
+			<div class="form-group col-md-12">
+				<label>Professor:</label>
+				<input type="text" name="professor" value="<?php echo $professor ?>" class="form-control" required>
+			</div>
+			<div class="form-group col-md-12">
+				<input type="submit" name="salvar" value="Salvar" class="btn btn-success">
+			</div>
+		</form>
+	</div>
+</div>

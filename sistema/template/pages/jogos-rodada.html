@@ -1,0 +1,132 @@
+<div class="row corpo">
+	<div class="col-md-12">
+		<h2>
+			<i class="fa fa-futbol-o"></i> Jogos da Rodada
+			<small><?php echo $campeonato['nome'] . ' - ' . $rodada['descr'] ?></small>
+		</h2>
+		<hr>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item">
+				<a href="<?php echo PAG_RODADAS_CAMPEONATO . $cod_campeonato ?>">
+					<i class="fa fa-arrow-left"></i>
+					Voltar
+				</a>
+			</li>
+			<li class="breadcrumb-item">
+				<a href="#" data-toggle="modal" data-target="#mdAdicionarRodada">
+					<i class="fa fa-plus"></i>
+					Adicionar jogo
+				</a>
+			</li>
+		</ol>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<div class="table-responsive">
+			<table class="table table-bordered">
+				<thead>
+					<th>Jogo</th>					
+					<th>Opções</th>
+				</thead>
+				<tbody>
+					<?php if (count($jogos) > 0): ?>
+						<?php foreach ($jogos as $j): ?>
+							<tr>
+								<td>
+									<?php echo $j['time1'] . ' <b>'.$j['gols_time1'].'</b> X <b>'.$j['gols_time2'].'</b> ' . $j['time2'] ?>
+								</td>
+								<td>
+									<a href="<?php echo PAG_DEL_JOGO_RODADA . $j['cod_jogo'] ?>" class="btn btn-danger del">
+										<i class="fa fa-close"></i> Excluir
+									</a>
+								</td>
+							</tr>
+						<?php endforeach ?>
+					<?php else: ?>
+						<tr>
+							<td colspan="3">Nenhum jogo nesta rodada ainda.</td>
+						</tr>
+					<?php endif ?>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="modal" id="mdAdicionarRodada">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<form method="POST">
+				<input type="hidden" name="cod_rodada" value="<?php echo $cod_rodada ?>">
+				<div class="modal-header">
+					<h4 class="modal-title">Adicionar jogo</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="form-group col-md-8">
+							<label>Time 1:</label>
+							<!--<select name="cod_time1" class="form-control listTimes" data-url="ajax/list-times.php" autocomplete="off" required></select>-->
+							<select name="cod_time1" class="form-control" required>
+								<option></option>
+								<?php foreach ($times as $time): ?>
+									<option value="<?php echo $time['cod_time'] ?>">
+										<?php echo $time['nome'] ?>
+									</option>
+								<?php endforeach ?>
+							</select>
+						</div>
+						<div class="form-group col-md-4">
+							<label>Gols Time 1:</label>
+							<input type="number" name="gols_time1" class="form-control" min="0" value="0" required>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-md-8">
+							<label>Time 2:</label>
+							<!--<select name="cod_time2" class="form-control listTimes" data-url="ajax/list-times.php" autocomplete="off"></select>-->
+							<select name="cod_time2" class="form-control" required>
+								<option></option>
+								<?php foreach ($times as $time): ?>
+									<option value="<?php echo $time['cod_time'] ?>">
+										<?php echo $time['nome'] ?>
+									</option>
+								<?php endforeach ?>
+							</select>
+						</div>
+						<div class="form-group col-md-4">
+							<label>Gols Time 2:</label>
+							<input type="number" name="gols_time2" class="form-control" min="0" value="0" required>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-md-12">
+							<label>Local:</label>
+							<input type="text" name="local" class="form-control">
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-md-6">
+							<label>Data:</label>
+							<input type="date" name="data" class="form-control">
+						</div>
+						<div class="form-group col-md-6">
+							<label>Hora:</label>
+							<input type="time" name="hora" class="form-control">
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">					
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+					<input type="submit" name="adicionar_jogo" class="btn btn-success" value="Adicionar">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

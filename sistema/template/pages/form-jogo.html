@@ -1,0 +1,69 @@
+<div class="row corpo">
+	<div class="col-md-12">
+		<h2><i class="fa fa-futbol-o"></i> <?php echo $titulo ?></h2>
+		<hr>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<ol class="breadcrumb">
+		<li class="breadcrumb-item">
+			<a href="<?php echo PAG_JOGOS_RODADA . $cod_rodada ?>">
+				<i class="fa fa-arrow-left"></i>
+				Voltar
+			</a>
+		</li>
+		</ol>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<form method="POST">
+			<input type="hidden" name="codigo" value="<?php echo $codigo ?>">
+			<div class="row">
+				<div class="form-group col-md-8">
+					<label>Time 1:</label>
+					<input type="text" class="form-control" value="<?php echo $time1 ?>" disabled>
+					</select>
+				</div>
+				<div class="form-group col-md-4">
+					<label>Gols Time 1:</label>
+					<input type="number" name="gols_time1" value="<?php echo $gols_time1 ?>" class="form-control" min="0" value="0" required>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-md-8">
+					<label>Time 2:</label>
+					<input type="text" class="form-control" value="<?php echo $time2 ?>" disabled>
+				</div>
+				<div class="form-group col-md-4">
+					<label>Gols Time 2:</label>
+					<input type="number" name="gols_time2" value="<?php echo $gols_time2 ?>" class="form-control" min="0" value="0" required>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-md-12">
+					<label>Local:</label>
+					<input type="text" name="local" value="<?php echo $local ?>" class="form-control">
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-md-6">
+					<label>Data:</label>
+					<input type="date" name="data" value="<?php echo $data ?>" class="form-control">
+				</div>
+				<div class="form-group col-md-6">
+					<label>Hora:</label>
+					<input type="time" name="hora" value="<?php echo $hora ?>" class="form-control">
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-md-12">
+					<input type="submit" name="salvar" value="Salvar" class="btn btn-success">
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

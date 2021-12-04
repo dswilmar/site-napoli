@@ -1,0 +1,86 @@
+<div class="row corpo">
+	<div class="col-md-12">
+		<h2><i class="fa fa-trophy"></i> <?php echo $titulo ?></h2>
+		<hr>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item">
+				<a href="<?php echo PAG_CAMPEONATOS ?>">
+					<i class="fa fa-arrow-left"></i>
+					Voltar
+				</a>
+			</li>
+			<li class="breadcrumb-item">
+				<a href="<?php echo PAG_RODADAS_CAMPEONATO . $codigo ?>">
+					<i class="fa fa-refresh"></i>
+					Rodadas do campeonato
+				</a>
+			</li>
+		</ol>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<form method="POST">
+			<input type="hidden" name="codigo" value="<?php echo $codigo ?>">
+			<div class="row">
+				<div class="form-group col-md-8">
+					<label>Nome:</label>
+					<input type="text" name="nome" value="<?php echo $nome ?>" class="form-control" required>
+				</div>
+				<div class="form-group col-md-4">
+					<label>Categoria:</label>
+					<select name="cod_categoria" class="form-control" required>
+						<option></option>
+						<?php foreach ($categorias as $c): ?>
+							<option value="<?php echo $c['cod_categoria'] ?>" <?php echo ($c['cod_categoria'] === $cod_categoria ? 'selected' : '') ?>>
+								<?php echo $c['nome'] ?>
+							</option>
+						<?php endforeach ?>
+					</select>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-md-6">
+					<label>Data de início:</label>
+					<input type="date" name="data_ini" value="<?php echo $data_ini ?>" class="form-control">
+				</div>
+				<div class="form-group col-md-6">
+					<label>Data de fim:</label>
+					<input type="date" name="data_fim" value="<?php echo $data_fim ?>" class="form-control">
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-md-8">
+					<label>Regulamento:</label>
+					<div class="input-group">              
+		          		<input type="text" class="form-control" value="<?php echo $regulamento ?>" name="regulamento" id="txtArquivo" readonly>
+						<span class="input-group-btn">
+							<button class="btn btn-secondary" type="button" onclick="openKCFinder(txtArquivo)">
+								<i class="fa fa-folder-open"></i> Selecionar arquivo
+							</button>
+						</span>
+				    </div>
+				</div>
+				<div class="form-group col-md-4">
+					<label>Exibir:</label>
+					<select name="exibir" class="form-control" required>
+						<option></option>
+						<option value="S" <?php echo ($exibir === 'S' ? 'selected' : '') ?>>Sim</option>
+						<option value="N" <?php echo ($exibir === 'N' ? 'selected' : '') ?>>Não</option>
+					</select>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-md-12">
+					<input type="submit" name="salvar" value="Salvar" class="btn btn-success">
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

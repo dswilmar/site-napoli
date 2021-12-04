@@ -1,0 +1,182 @@
+<div class="row corpo">
+	<div class="col-md-12">
+		<h2>
+			<i class="fa fa-table"></i> Tabela de classificação
+			<small><?php echo $campeonato['nome'] ?></small>
+		</h2>
+		<hr>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item">
+				<a href="<?php echo PAG_HOME ?>">
+					<i class="fa fa-arrow-left"></i>
+					Voltar
+				</a>
+			</li>
+		</ol>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-7">
+		<h4>Tabela</h4>
+		<div class="table-responsive">
+			<table class="table table-bordered">
+				<thead>
+					<th colspan="2">Classificação</th>					
+					<th>P</th>
+					<th>J</th>
+					<th>V</th>
+					<th>E</th>
+					<th>D</th>					
+					<th>GP</th>
+					<th>GC</th>
+					<th>SG</th>
+				</thead>
+				<tbody>
+					<?php if (count($dados) > 0): ?>
+						<?php foreach ($dados as $reg): $pos = $pos + 1; ?>
+							<tr>
+								<td><b><?php echo $pos ?></b></td>
+								<td><?php echo $reg['nome'] ?></td>
+								<td><?php echo $reg['pontos'] ?></td>
+								<td><?php echo qtd_jogos_time_campeonato($reg['cod_time'], $cod_campeonato)?></td>
+								<td><?php echo $reg['vitorias'] ?></td>
+								<td><?php echo $reg['empates'] ?></td>
+								<td><?php echo $reg['derrotas'] ?></td>								
+								<td><?php echo $reg['gols_feitos'] ?></td>
+								<td><?php echo $reg['gols_sofridos'] ?></td>
+								<td><?php echo $reg['saldo_gols'] ?></td>
+							</tr>
+						<?php endforeach ?>
+					<?php else: ?>
+						<tr>
+							<td colspan="9">Nada a mostrar ainda.</td>
+						</tr>
+					<?php endif ?>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="col-md-5">
+		<h4>Jogos</h4>
+		<div class="form-group">
+			<form method="POST">
+				<select class="form-control" name="cod_rodada" onchange="this.form.submit()">
+					<?php foreach ($rodadas as $r): ?>
+						<option value="<?php echo $r['cod_rodada'] ?>" <?php echo ($r['cod_rodada'] == $cod_rodada) ? 'selected' : '' ?>>
+							<?php echo $r['descr'] ?>
+						</option>
+					<?php endforeach ?>
+				</select>
+			</form>
+		</div>
+		<div class="list-group text-center">
+			<?php if (count($jogos) > 0): ?>
+				<?php foreach ($jogos as $j): ?>
+					<label class="list-group-item list-group-item-action">
+						<img src="<?php echo $j['logo1'] ?>" class="img float-left" style="width: 40px">
+						<?php echo $j['time1'] ?> 
+						<b><?php echo $j['gols_time1'] ?></b> 
+						X 
+						<b><?php echo $j['gols_time2'] ?></b> 
+						<?php echo $j['time2'] ?>
+						<img src="<?php echo $j['logo2'] ?>" class="img float-right" style="width: 40px">
+					</label>
+				<?php endforeach ?>
+			<?php else: ?>
+				<label>Nada a mostrar ainda.</label>
+			<?php endif ?>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<h4>Artilheiros</h4>
+		<div class="table-responsive">
+			<table class="table table-bordered">
+				<thead>					
+					<th colspan="2">Aluno</th>
+					<th>Time</th>
+					<th>Gols</th>
+				</thead>
+				<tbody>
+					<?php if (count($artilheiros) > 0): ?>
+						<?php foreach ($artilheiros as $a): ?>
+						<tr>
+							<td>
+								<img src="<?php echo $a['foto'] ?>" class="img img-thumbnail" style="width: 40px">
+							</td>
+							<td><?php echo $a['aluno'] ?></td>
+							<td><?php echo $a['time'] ?></td>
+							<td><?php echo $a['gols'] ?></td>
+						</tr>
+						<?php endforeach ?>
+					<?php else: ?>
+						<tr>
+							<td colspan="4">Nada a mostrar ainda.</td>
+						</tr>
+					<?php endif ?>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="modal" id="mdAdicionarRodada">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<form method="POST">
+				<input type="hidden" name="cod_rodada" value="<?php echo $cod_rodada ?>">
+				<div class="modal-header">
+					<h4 class="modal-title">Adicionar jogo</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="form-group col-md-8">
+							<label>Time 1:</label>
+							<select name="cod_time1" class="form-control listTimes" data-url="ajax/list-times.php" autocomplete="off" required></select>
+						</div>
+						<div class="form-group col-md-4">
+							<label>Gols Time 1:</label>
+							<input type="number" name="gols_time1" class="form-control" min="0" value="0" required>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-md-8">
+							<label>Time 2:</label>
+							<select name="cod_time2" class="form-control listTimes" data-url="ajax/list-times.php" autocomplete="off"></select>
+						</div>
+						<div class="form-group col-md-4">
+							<label>Gols Time 2:</label>
+							<input type="number" name="gols_time2" class="form-control" min="0" value="0" required>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-md-12">
+							<label>Local:</label>
+							<input type="text" name="local" class="form-control">
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-md-6">
+							<label>Data:</label>
+							<input type="date" name="data" class="form-control">
+						</div>
+						<div class="form-group col-md-6">
+							<label>Hora:</label>
+							<input type="time" name="hora" class="form-control">
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">					
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+					<input type="submit" name="adicionar_jogo" class="btn btn-success" value="Adicionar">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

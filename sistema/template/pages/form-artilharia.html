@@ -1,0 +1,62 @@
+<div class="row corpo">
+	<div class="col-md-12">
+		<h2><i class="fa fa-futbol-o"></i> <?php echo $titulo ?></h2>
+		<hr>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<ol class="breadcrumb">
+		<li class="breadcrumb-item">
+			<a href="<?php echo PAG_ARTILHARIA ?>">
+				<i class="fa fa-arrow-left"></i>
+				Voltar
+			</a>
+		</li>
+		</ol>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<form method="POST">
+			<div class="row">
+				<input type="hidden" name="codigo" value="<?php echo $codigo ?>">
+				<div class="form-group col-md-6" id="selectCampeonato2">
+					<label>Campeonato:</label>
+					<select name="cod_campeonato" id="selectCampeonato2" class="form-control" required>
+						<option value=""></option>
+						<?php foreach ($campeonatos as $c): ?>
+							<option value="<?php echo $c['cod_campeonato'] ?>">
+								<?php echo $c['campeonato'] ?>
+							</option>
+						<?php endforeach ?>
+					</select>
+				</div>
+				<div class="form-group col-md-6">
+					<label>Time:</label>
+					<select name="cod_time" class="form-control" id="selectTimes" required>
+						<option value=""></option>
+					</select>
+				</div>				
+			</div>			
+			<div class="row">
+				<div class="form-group col-md-6">
+					<label>Aluno:</label>
+					<select name="cod_aluno" id="selectAlunos" class="form-control" required>
+					</select>
+				</div>
+				<div class="form-group col-md-6">
+					<label>Gols:</label>
+					<input type="number" name="gols" min="0" class="form-control" required>
+				</div>
+			</div>			
+			<div class="row">
+				<div class="form-group col-md-12">
+					<input type="submit" name="salvar" value="Salvar" class="btn btn-success">
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

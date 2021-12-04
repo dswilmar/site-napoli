@@ -1,0 +1,64 @@
+.form-inline .form-control {
+    margin: 5px;
+}
+
+.form-control-static {
+	background: #e9ecef;
+	display: block;
+    width: 100%;
+    height: calc(1.5em + 1rem + 2px);
+    padding: 0.5rem 1.1rem;
+    font-size: 1.063rem;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.5;
+    color: #495057;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 0.25rem;
+}
+
+.bg-login {	
+	background-size: contain;
+}
+
+.login {
+	margin-top: 50px;
+}
+
+.corpo {
+	margin-top: 80px;
+}
+
+.card-link {
+	color: #fff;
+}
+
+.card-link:hover {
+	color: #fff;
+}
+
+#buttons > a, #buttons > input {
+    margin-right: 5px;
+}
+
+.status-C {
+    background: #E9ECEF !important;
+    color: black !important;
+    border: #E9ECEF;
+}
+
+.fc-center {
+    font-size: 0.8em;
+    color: #6c757d;
+}
+
+.fc-today {
+    background: #fafafa;
+    color: black;
+    font-weight: bold;
+}
+
+.dropdown-item {
+    cursor: pointer;
+}

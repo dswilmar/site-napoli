@@ -1,0 +1,6 @@
+[21-Oct-2021 17:46:17 America/Recife] PHP Warning:  POST Content-Length of 10815722 bytes exceeds the limit of 8388608 bytes in Unknown on line 0
+[04-Nov-2021 16:51:56 America/Recife] PHP Deprecated:  The each() function is deprecated. This message will be suppressed on further calls in /home/efutebolnapoli/public_html/sistema/kcfinder/lib/class_image.php on line 119
+[05-Nov-2021 14:59:13 America/Recife] PHP Deprecated:  The each() function is deprecated. This message will be suppressed on further calls in /home/efutebolnapoli/public_html/sistema/kcfinder/lib/class_image.php on line 119
+[11-Nov-2021 21:24:23 America/Recife] PHP Deprecated:  The each() function is deprecated. This message will be suppressed on further calls in /home/efutebolnapoli/public_html/sistema/kcfinder/lib/class_image.php on line 119
+[11-Nov-2021 21:24:43 America/Recife] PHP Deprecated:  The each() function is deprecated. This message will be suppressed on further calls in /home/efutebolnapoli/public_html/sistema/kcfinder/lib/class_image.php on line 119
+[11-Nov-2021 21:25:01 America/Recife] PHP Deprecated:  The each() function is deprecated. This message will be suppressed on further calls in /home/efutebolnapoli/public_html/sistema/kcfinder/lib/class_image.php on line 119

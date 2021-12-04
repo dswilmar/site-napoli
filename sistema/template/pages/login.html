@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><?php echo APP_NAME ?> - Login</title>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="<?php echo BOOTSTRAP_URL ?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo STYLE_URL ?>">
+</head>
+<body class="bg-login">
+
+<div class="container">
+	<div class="row justify-content-md-center">
+		<div class="col-md-offset-4 col-md-4 login">
+			<div class="card bg-success">
+  				<div class="card-body">
+            <img src="<?php echo IMG_LOGO_URL ?>" width="100%">
+            <hr>
+    				<form method="POST">
+    					<div class="form-group">
+    						<label>Login:</label>
+    						<input type="text" name="login" class="form-control" autofocus required>
+    					</div>
+    					<div class="form-group">
+    						<label>Senha:</label>
+    						<input type="password" name="senha" class="form-control" required>
+    					</div>
+    					<div class="form-group">
+    						<input type="submit" name="logar" class="btn btn-dark btn-block" value="Acessar">
+    					</div>              
+    				</form>
+  				</div>
+			</div>
+      <?php if (isset($alert)): ?>
+        <br>
+        <div class="alert alert-dismissible alert-<?php echo $alert['tipo'] ?>">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <?php echo $alert['msg'] ?>
+        </div>
+      <?php endif ?>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="<?php echo JQUERY_URL ?>"></script>
+<script type="text/javascript" src="<?php echo POPPER_URL ?>"></script>
+<script type="text/javascript" src="<?php echo BOOTSTRAP_JS_URL ?>"></script>
+<script type="text/javascript" src="<?php echo PACE_JS_URL ?>"></script>
+
+</body>
+</html>
