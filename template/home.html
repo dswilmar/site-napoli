@@ -8,14 +8,29 @@
 <section class="container">
 	<div class="row text-center">
 		<div class="col-md-12">
-			<h2>Tabelas dos Campeonatos</h2>
+			<h2 class="page-header">Campeonatos em andamento</h2>
 		</div>
+	</div>
+	<div class="row">
+		<?php foreach ($campeonatos as $c): ?>
+		<div class="col-md-4">
+			<div class="panel panel-default">
+				<div class="panel-body card">
+					<i class="fa fa-futbol-o"></i>
+					<h3><?php echo $c['campeonato'] ?><br><small><?php echo $c['categoria'] ?></small></h3>
+  				</div>
+  				<div class="panel-footer">
+  					<a href="<?php echo SITE_TABELA . $c['cod_campeonato'] ?>" class="btn btn-success btn-block">Ver jogos e tabela</a>
+  				</div>
+			</div>
+		</div>
+		<?php endforeach ?>
 	</div>
 </section>
 <section class="container">
 	<div class="row text-center">
 		<div class="col-md-12">
-			<h2>Apoio</h2>
+			<h2 class="page-header">Apoio</h2>
 		</div>
 	</div>
 </section>
