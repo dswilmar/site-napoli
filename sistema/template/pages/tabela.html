@@ -98,17 +98,14 @@
 		<div class="table-responsive">
 			<table class="table table-bordered">
 				<thead>					
-					<th colspan="2">Aluno</th>
+					<th>Aluno</th>
 					<th>Time</th>
 					<th>Gols</th>
 				</thead>
 				<tbody>
 					<?php if (count($artilheiros) > 0): ?>
 						<?php foreach ($artilheiros as $a): ?>
-						<tr>
-							<td>
-								<img src="<?php echo $a['foto'] ?>" class="img img-thumbnail" style="width: 40px">
-							</td>
+						<tr>							
 							<td><?php echo $a['aluno'] ?></td>
 							<td><?php echo $a['time'] ?></td>
 							<td><?php echo $a['gols'] ?></td>

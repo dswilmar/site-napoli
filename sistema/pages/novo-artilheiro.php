@@ -4,13 +4,13 @@ if (isset($_POST['salvar'])) {
 	
 	$cod_campeonato = filter_input(INPUT_POST, 'cod_campeonato', FILTER_VALIDATE_INT);
 	$cod_time = filter_input(INPUT_POST, 'cod_time', FILTER_VALIDATE_INT);
-	$cod_aluno = filter_input(INPUT_POST, 'cod_aluno', FILTER_VALIDATE_INT);
+	$artilheiro = filter_input(INPUT_POST, 'artilheiro', FILTER_SANITIZE_STRING);
 	$gols = filter_input(INPUT_POST, 'gols', FILTER_VALIDATE_INT);
 	
 	$dados = array(
 		'cod_campeonato' => $cod_campeonato,
 		'cod_time' => $cod_time,
-		'cod_aluno' => $cod_aluno,
+		'artilheiro' => $artilheiro,
 		'gols' => $gols
 	);	
 
@@ -21,7 +21,7 @@ if (isset($_POST['salvar'])) {
 
 $cod_campeonato = 0;
 $cod_time = 0;
-$cod_aluno = 0;
+$artilheiro = '';
 $gols = 0;
 
 $campeonatos = listar_campeonatos_ativos();

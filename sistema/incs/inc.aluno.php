@@ -66,17 +66,15 @@ function excluir_aluno_time($cod_aluno_time) {
 function listar_artilheiros() {
 	$sql = 'SELECT 
 				cod_art, 
-				aluno.nome as aluno,
+				artilheiro as aluno,
 				time.nome as time,
 				campeonato.nome as campeonato,								
 				gols
-			FROM artilharia
+			FROM artilheiro
 			INNER JOIN campeonato ON
-			campeonato.cod_campeonato = artilharia.cod_campeonato
-			INNER JOIN aluno ON
-			aluno.cod_aluno = artilharia.cod_aluno
+			campeonato.cod_campeonato = artilheiro.cod_campeonato
 			INNER JOIN time ON
-			time.cod_time = artilharia.cod_time
+			time.cod_time = artilheiro.cod_time
 			ORDER BY gols DESC, campeonato';
 	$dados = selecionar_dados($sql);
 	return $dados;
@@ -85,17 +83,14 @@ function listar_artilheiros() {
 function listar_artilheiros_campeonato($cod_campeonato) {
 	$sql = 'SELECT 
 				cod_art, 
-				aluno.nome as aluno,
-				aluno.foto as foto,
+				artilheiro as aluno,				
 				time.nome as time,
 				gols
-			FROM artilharia
+			FROM artilheiro
 			INNER JOIN campeonato ON
-			campeonato.cod_campeonato = artilharia.cod_campeonato
-			INNER JOIN aluno ON
-			aluno.cod_aluno = artilharia.cod_aluno
+			campeonato.cod_campeonato = artilheiro.cod_campeonato
 			INNER JOIN time ON
-			time.cod_time = artilharia.cod_time
+			time.cod_time = artilheiro.cod_time
 			WHERE campeonato.cod_campeonato = :cod_campeonato
 			ORDER BY gols DESC';
 	$params = array('cod_campeonato' => $cod_campeonato);
@@ -106,33 +101,31 @@ function listar_artilheiros_campeonato($cod_campeonato) {
 function dados_artilharia($cod) {
 	$sql = 'SELECT 
 				cod_art, 
-				aluno.nome as aluno,
+				artilheiro as aluno,
 				time.nome as time,
 				campeonato.nome as campeonato,								
 				gols
-			FROM artilharia
+			FROM artilheiro
 			INNER JOIN campeonato ON
-			campeonato.cod_campeonato = artilharia.cod_campeonato
-			INNER JOIN aluno ON
-			aluno.cod_aluno = artilharia.cod_aluno
+			campeonato.cod_campeonato = artilheiro.cod_campeonato
 			INNER JOIN time ON
-			time.cod_time = artilharia.cod_time
-			WHERE artilharia.cod_art = :cod_art';
+			time.cod_time = artilheiro.cod_time
+			WHERE artilheiro.cod_art = :cod_art';
 	$cond = array('cod_art' => $cod);
 	$dados = selecionar_dados($sql, $cond);
 	return $dados[0];
 }
 
 function inserir_artilheiro($dados) {
-	db_insert('artilharia', $dados);
+	db_insert('artilheiro', $dados);
 }
 
 function editar_artilheiro($dados, $cod) {
 	$cond = array('cod_art' => $cod);
-	db_update('artilharia', $dados, $cond);
+	db_update('artilheiro', $dados, $cond);
 }
 
 function excluir_artilheiro($cod) {
 	$cond = array('cod_art' => $cod);
-	db_delete('artilharia', $cond);
+	db_delete('artilheiro', $cond);
 }
