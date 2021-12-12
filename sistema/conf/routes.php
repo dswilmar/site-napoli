@@ -4,7 +4,7 @@
 * Configurações de rotas da aplicação
 */
 
-define('SITE_URL', 'https://escoladefutebolnapoli.com.br/sistema/');
+define('SITE_URL', 'http://192.168.3.226/site-napoli/sistema/');
 
 //assets
 define('BOOTSTRAP_URL', SITE_URL . 'assets/css/bootstrap.min.css');
@@ -84,3 +84,9 @@ define('PAG_USUARIOS', SITE_URL . 'usuarios');
 define('PAG_NOVO_USUARIO', SITE_URL . 'novo-usuario');
 define('PAG_EDT_USUARIO', SITE_URL . 'editar-usuario?cod=');
 define('PAG_SENHA_USUARIO', SITE_URL . 'trocar-senha-usuario?cod=');
+
+//Conteúdo do Site
+define('PAG_APOIO_PATROCINADORES', SITE_URL . 'apoio-patrocinadores');
+define('PAG_NOVO_PATROCINADOR', SITE_URL . 'novo-patrocinador');
+define('PAG_EDT_PATROCINADOR', SITE_URL . 'editar-patrocinador?cod=');
+define('PAG_DEL_PATROCINADOR', SITE_URL . 'excluir-patrocinador?cod=');

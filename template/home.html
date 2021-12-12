@@ -33,11 +33,26 @@
 			<h2 class="page-header">Apoio</h2>
 		</div>
 	</div>
-</section>
-<div id="modalCampeonato" class="modal" role="dialog">
-	<div class="modal-dialog modal-lg">
-		<div class="modal-content">
-  			
+	<div class="row">
+		<?php foreach ($patrocinadores as $p): ?>
+		<div class="col-md-4">
+			<div class="thumbnail">
+				<img src="<?php echo $p['img'] ?>" class="banner img img-responsive">
+			</div>
+		</div>	
+		<?php endforeach ?>		
+	</div>
+	<!--
+	<div class="row">
+		<div class="col-md-12 text-center">
+			<div class="owl-carousel">
+			<?php //foreach ($patrocinadores as $p): ?>
+				<div class="thumbnail">
+					<img src="<?php //echo $p['img'] ?>" class="banner img img-responsive">
+				</div>				
+			<?php //endforeach ?>
+			</div>
 		</div>
 	</div>
-</div>
+	-->
+</section>

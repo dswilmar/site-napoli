@@ -1,7 +1,7 @@
 <?php
 
 //constantes do sistema
-define('BASE_URL', 'http://localhost/site-napoli/');
+define('BASE_URL', 'http://192.168.3.226/site-napoli/');
 define('SYS_FOLDER', './sistema');
 
 //páginas do site

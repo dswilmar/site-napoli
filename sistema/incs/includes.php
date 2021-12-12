@@ -12,3 +12,4 @@ require __DIR__ . DIRECTORY_SEPARATOR . 'inc.campeonato.php';
 require __DIR__ . DIRECTORY_SEPARATOR . 'inc.rodada.php';
 require __DIR__ . DIRECTORY_SEPARATOR . 'inc.jogo.php';
 require __DIR__ . DIRECTORY_SEPARATOR . 'inc.tabela.php';
+require __DIR__ . DIRECTORY_SEPARATOR . 'inc.site.php';
